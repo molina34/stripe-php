@@ -20,6 +20,8 @@ namespace Stripe\Issuing;
  * @property string $network The card network for this settlement report. One of [&quot;visa&quot;, &quot;maestro&quot;]
  * @property int $network_fees The total amount of fees owed to the network.
  * @property string $network_settlement_identifier The Settlement Identification Number assigned by the network.
+ * @property int $other_fees_amount The total amount of any additional ad-hoc fees accessed by the card network.
+ * @property int $other_fees_count The total number of additional ad-hoc fees accessed by the card network.
  * @property string $settlement_service One of <code>international</code> or <code>uk_national_net</code>.
  * @property string $status The current processing status of this settlement.
  * @property int $transaction_count The total number of transactions reflected in this settlement.

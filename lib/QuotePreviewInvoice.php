@@ -107,7 +107,7 @@ namespace Stripe;
  * @property null|string $statement_descriptor Extra information about an invoice for the customer's credit card statement.
  * @property null|string $status The status of the invoice, one of <code>draft</code>, <code>open</code>, <code>paid</code>, <code>uncollectible</code>, or <code>void</code>. <a href="https://stripe.com/docs/billing/invoices/workflow#workflow-overview">Learn more</a>
  * @property (object{finalized_at: null|int, marked_uncollectible_at: null|int, paid_at: null|int, voided_at: null|int}&\Stripe\StripeObject&\stdClass) $status_transitions
- * @property null|string|\Stripe\Subscription $subscription
+ * @property null|string|\Stripe\Subscription $subscription The subscription that this invoice was prepared for, if any.
  * @property null|(object{metadata: null|\Stripe\StripeObject, pause_collection?: null|(object{behavior: string, resumes_at: null|int}&\Stripe\StripeObject&\stdClass)}&\Stripe\StripeObject&\stdClass) $subscription_details Details about the subscription that created this invoice.
  * @property null|int $subscription_proration_date Only set for upcoming invoices that preview prorations. The time used to calculate prorations.
  * @property int $subtotal Total of all subscriptions, invoice items, and prorations on the invoice before any invoice level discount or exclusive tax is applied. Item discounts are already incorporated

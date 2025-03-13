@@ -39,6 +39,7 @@ namespace Stripe;
  * @property null|\Stripe\StripeObject $ideal
  * @property null|\Stripe\StripeObject $klarna
  * @property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
+ * @property null|\Stripe\StripeObject $mb_way
  * @property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
  * @property null|\Stripe\StripeObject $multibanco
  * @property null|\Stripe\StripeObject $owner Information about the owner of the payment instrument that may be used or required by particular source types.
@@ -52,7 +53,7 @@ namespace Stripe;
  * @property null|string $statement_descriptor Extra information about a source. This will appear on your customer's statement every time you charge the source.
  * @property string $status The status of the source, one of <code>canceled</code>, <code>chargeable</code>, <code>consumed</code>, <code>failed</code>, or <code>pending</code>. Only <code>chargeable</code> sources can be used to create a charge.
  * @property null|\Stripe\StripeObject $three_d_secure
- * @property string $type The <code>type</code> of the source. The <code>type</code> is a payment method, one of <code>ach_credit_transfer</code>, <code>ach_debit</code>, <code>alipay</code>, <code>bancontact</code>, <code>card</code>, <code>card_present</code>, <code>eps</code>, <code>giropay</code>, <code>ideal</code>, <code>multibanco</code>, <code>klarna</code>, <code>p24</code>, <code>sepa_debit</code>, <code>sofort</code>, <code>three_d_secure</code>, or <code>wechat</code>. An additional hash is included on the source with a name matching this value. It contains additional information specific to the <a href="https://stripe.com/docs/sources">payment method</a> used.
+ * @property string $type The <code>type</code> of the source. The <code>type</code> is a payment method, one of <code>ach_credit_transfer</code>, <code>ach_debit</code>, <code>alipay</code>, <code>bancontact</code>, <code>card</code>, <code>card_present</code>, <code>eps</code>, <code>giropay</code>, <code>ideal</code>, <code>mb_way</code>, <code>multibanco</code>, <code>klarna</code>, <code>p24</code>, <code>sepa_debit</code>, <code>sofort</code>, <code>three_d_secure</code>, or <code>wechat</code>. An additional hash is included on the source with a name matching this value. It contains additional information specific to the <a href="https://stripe.com/docs/sources">payment method</a> used.
  * @property null|string $usage Either <code>reusable</code> or <code>single_use</code>. Whether this source should be reusable or not. Some source types may or may not be reusable by construction, while others may leave the option at creation. If an incompatible value is passed, an error will be returned.
  * @property null|\Stripe\StripeObject $wechat
  */
@@ -89,6 +90,7 @@ class Source extends ApiResource
     const TYPE_GIROPAY = 'giropay';
     const TYPE_IDEAL = 'ideal';
     const TYPE_KLARNA = 'klarna';
+    const TYPE_MB_WAY = 'mb_way';
     const TYPE_MULTIBANCO = 'multibanco';
     const TYPE_P24 = 'p24';
     const TYPE_SEPA_CREDIT_TRANSFER = 'sepa_credit_transfer';
@@ -191,7 +193,7 @@ class Source extends ApiResource
         if (!$id) {
             $class = static::class;
             $msg = "Could not determine which URL to request: {$class} instance "
-             . "has invalid ID: {$id}";
+                . "has invalid ID: {$id}";
 
             throw new Exception\UnexpectedValueException($msg, null);
         }
@@ -208,7 +210,7 @@ class Source extends ApiResource
             return $this;
         }
         $message = 'This source object does not appear to be currently attached '
-               . 'to a customer object.';
+            . 'to a customer object.';
 
         throw new Exception\UnexpectedValueException($message);
     }

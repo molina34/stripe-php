@@ -39,6 +39,7 @@ class SourceTransaction extends ApiResource
     const TYPE_GIROPAY = 'giropay';
     const TYPE_IDEAL = 'ideal';
     const TYPE_KLARNA = 'klarna';
+    const MB_WAY = 'mb_way';
     const TYPE_MULTIBANCO = 'multibanco';
     const TYPE_P24 = 'p24';
     const TYPE_SEPA_DEBIT = 'sepa_debit';

@@ -44,6 +44,7 @@ namespace Stripe;
  * @property null|\Stripe\StripeObject $kr_card
  * @property null|\Stripe\StripeObject $link
  * @property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
+ * @property null|\Stripe\StripeObject $mb_way
  * @property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
  * @property null|\Stripe\StripeObject $mobilepay
  * @property null|\Stripe\StripeObject $multibanco
@@ -104,6 +105,7 @@ class PaymentMethod extends ApiResource
     const TYPE_KONBINI = 'konbini';
     const TYPE_KR_CARD = 'kr_card';
     const TYPE_LINK = 'link';
+    const TYPE_MB_WAY = 'mb_way';
     const TYPE_MOBILEPAY = 'mobilepay';
     const TYPE_MULTIBANCO = 'multibanco';
     const TYPE_NAVER_PAY = 'naver_pay';
